@@ -1,0 +1,25 @@
+
+button,a,
+img,figure,
+.ps-feedback .owl-item,
+.ps-common-categories__hoverimg,
+.ps-common-categories__hoverbtn,
+.ps-common-categories__img,
+.ps-common-categories__title,
+.ps-featured--cards .card,
+.ps-profile-setting__imgs label .ps-trash,
+.ps-profile-setting__imgs label .ps-tick,
+.ps-footer__link a:before,
+.ps-categories-details ul li a:before,
+.ps-page button,
+.ps-uniqueGadgets__content .btn,
+.btn,
+.ps-featured--cards .list-group i,
+.ps-common-categories__content
+{
+	-webkit-transition: all 300ms ease-in-out;
+	-moz-transition: all 300ms ease-in-out;
+	-ms-transition: all 300ms ease-in-out;
+	-o-transition: all 300ms ease-in-out;
+	transition: all 300ms ease-in-out;
+}

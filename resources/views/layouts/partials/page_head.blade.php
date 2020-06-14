@@ -36,7 +36,7 @@
                 {{-- <a href="" class="sidebar-brand">
                     <i class="fa fa-gavel"></i><span class="sidebar-nav-mini-hide"><strong>eTender</strong></span>
                 </a> --}}
-                 <a href="">
+                 <a href="{{ url('home') }}">
                     <img src="{{ asset("images/white-logo.png") }}" width="70%" alt="avatar" align="text-center">
                 </a>
                 <!-- END Brand -->
@@ -57,7 +57,7 @@
                 <!-- Sidebar Navigation -->
                 <ul class="sidebar-nav">
                     <li class="sidebar-header">
-                        <span class="sidebar-header-title">Dashboard</span>
+                        <span class="sidebar-header-title"> <a href="{{ url('home') }}"> Dashboard </a></span>
                     </li>
                     @if (request()->segment(1) == 'UserManagement')
                         <li class="sidebar-header">
@@ -80,6 +80,7 @@
                     <li>
                         <a href="{{ route('tenders.index') }}"><i class="fa fa-gavel sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Tenders</span></a>
                     </li>
+
                 </ul>
                 <!-- END Sidebar Navigation -->
             </div>

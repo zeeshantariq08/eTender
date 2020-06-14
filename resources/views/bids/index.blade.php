@@ -26,12 +26,16 @@
 			                    	<tr>
 								        <th class="text-center">ID</th>
 								        <th>Company Name</th>
-								        <th>Registration Number</th>
+								        <th>NTN Number</th>
+								        <th>Amount</th>
+								        <th>Experience</th>
 								        <th>Contact Person</th>
 								        <th>Email</th>
 								        <th>Document</th>
 								        <th>Tender</th>
-								        <th>Status</th>
+								        <th>Current Status</th>
+								        <th>Change Status</th>
+
 								        <th class="text-center">Action</th>
 								    </tr>
 			                    </thead>
@@ -39,15 +43,30 @@
 			                    	@foreach ($bids as $element)
 				                    	<tr>
 							                <td class="text-center">{{$element->id}} </td>
-							                <td> {{$element->company_name}} </td>
-							                <td> {{$element->company_reg_no}} </td>
-							                <td>{{$element->contact_person}}</td>
-							                <td> {{$element->email}} </td>
+							                <td> {{ Str::limit($element->company_decrypt, 5)}} {{-- {{ Str::limit($element->company_name,10)}} --}} </td>
+							                <td> {{$element->ntn_number}} </td>
+							                <td> {{ Str::limit($element->amount_decrypt, 5)}} </td>
+
+							                <td>{{ Str::limit($element->experience_decrypt, 5)}}</td>
+							                <td> {{ Str::limit($element->contact_person_decrypt, 5)}} </td>
+
+							                <td> {{ Str::limit($element->email_decrypt, 5)}} </td>
+
 							                <td>@if ($element->download_file)
 	 											<a class="btn btn-info btn-sm" href="{{ url('/storage/'.$element->upload_file) }}" download> Download </a> @endif
 	 										</td>
 							                <td> {{$element->tender->title}} </td>
 							                <td class="text-center"> {{$element->status}} </td>
+							                 <td class="text-center">
+								                <form action="{{ route('bidding.toggleStatus', $element->id) }}" method="post">
+								                    @csrf
+								                    @method('PUT')
+								                    <label class="switch switch-info">
+								                        <input {{$element->status == 'approved' ? 'checked' : '' }} onclick="this.form.submit()" type="checkbox">
+								                        <span {{$element->status == 'approved' ? 'title=Active' : 'title=Inactive' }} data-toggle="tooltip"></span>
+								                    </label>
+								                </form>
+								            </td>
 							                <td class="text-center">
 												<div class="btn-group-sm">
 													<a href="{{ route('tenders.bids.edit', [$tender->id, $element->id] ) }}" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Edit">
@@ -57,14 +76,6 @@
 													<a href="{{ route('tenders.bids.destroy', [$tender->id, $element->id]) }}" data-toggle="tooltip" title="" class="btn btn-danger confirm-delete" data-original-title="Delete">
 														<i class="fa fa-remove"></i>
 													</a>
-													
-													{{-- <form  method="post" action="{{ route('tenders.bids.destroy', [$tender->id, $element->id]) }}">
-
-													    @method("DELETE")
-													    @csrf
-
-													    <button type="submit" class="btn btn-xs btn-danger" onclick="return confirm('Are You Sure?')"> Delete </button>
-													</form> --}}
 												</div>
 											</td>
 							            </tr>

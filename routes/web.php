@@ -25,11 +25,29 @@ Route::get('/', function () {
     return view('main.index', compact('categories', 'provinces'));
 })->name('main.index');
 
-    
+Route::get('/search', function () {
+    $provinces = Province::with('districts')->get();
+    $categories = TenderCategory::get(['id','title']);
+    return view('main.search', compact('categories', 'provinces'));
+})->name('search');
+
+
+// Route::get('/tender-detail', function () {
+//    return view('tender.tender-detail');
+// });
+
+// Route::get('files/{file_name}', function($file_name = null)
+// {
+//     $path = storage_path().'/'.'app'.'/files/'.$file_name;
+//     if (file_exists($path)) {
+//         return Response::download($path);
+//     }
+// })->name('download');
+
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->middleware('IsAdmin')->name('home');
 
 Route::get('/Clientlogin', function () {
     return view('main.login')->with('usergroups',UserGroup::whereIn('name', ['Tenderer','Bidder'])->get());;
@@ -90,6 +108,7 @@ Route::group([ 'namespace' => 'Admin'], function () {
     Route::get('Districts/get_by_province', 'TenderController@get_by_province')->name('districts.get_by_province');
     // Route::resource('tenders.bids', 'AnswersController')->except('index','create','show');
     Route::resource('tenders.bids', 'BidsController');
+    Route::put('bidding/status/{id}', 'BidsController@toggleStatus')->name('bidding.toggleStatus');
 });
 
 // Route::group([ 'namespace' => 'FrontManagement'], function () {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Tender;
 
 class HomeController extends Controller
 {
@@ -22,7 +23,10 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
-        return view('home');
+    { 
+        $tenders = Tender::count();
+        $active_tenders = Tender::where('status', true)->with('tenderCategories')->get();
+        //dd($tenders->toArray());
+        return view('home', compact('active_tenders', 'tenders'));
     }
 }

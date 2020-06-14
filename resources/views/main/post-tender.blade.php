@@ -151,10 +151,77 @@
                             <div class="col-md-12">
                                 <div class="rld-single-input mt-2 @if($errors->has('description')) text-danger @endif">
                                     <label for=""> <b> Description* </b></label>
-                                    <textarea name="description" rows="10" placeholder="Description"></textarea>
+                                    <textarea name="description" rows="10" placeholder="Description" style="resize: none;"></textarea>
 
                                     @if($errors->has('description')) 
                                         <span class="text-danger"> {{$errors->first('description')}} </span>
+                                    @endif
+
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="rld-single-input @if($errors->has('company_ntn')) text-danger @endif">
+                                    <label for=""> <b> Company NTN* </b> </label>
+                                    <input type="text" name="company_ntn" placeholder="Reference Number" value="{{ old('company_ntn') }}" >
+
+                                    @if($errors->has('company_ntn')) 
+                                        <span class="text-danger"> {{$errors->first('company_ntn')}} </span>
+                                    @endif
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="rld-single-input @if($errors->has('company_name')) text-danger @endif">
+                                    <label for=""> <b> Company Name* </b> </label>
+                                    <input type="text" name="company_name" placeholder="Company Name" >
+                                    
+                                    @if($errors->has('company_name')) 
+                                        <span class="text-danger"> {{$errors->first('company_name')}} </span>
+                                    @endif
+                                   
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="rld-single-input @if($errors->has('company_email')) text-danger @endif">
+                                    <label for=""> <b> Company Email* </b> </label>
+                                    <input type="text" name="company_email" placeholder="Company Email" value="{{ old('company_email') }}" >
+
+                                    @if($errors->has('company_email')) 
+                                        <span class="text-danger"> {{$errors->first('company_email')}} </span>
+                                    @endif
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="rld-single-input @if($errors->has('company_phone_no')) text-danger @endif">
+                                    <label for=""> <b> Company Contact Number* </b> </label>
+                                    <input type="text" name="company_phone_no" placeholder="Contact No" >
+                                    
+                                    @if($errors->has('company_phone_no')) 
+                                        <span class="text-danger"> {{$errors->first('company_phone_no')}} </span>
+                                    @endif
+                                   
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="rld-single-input mt-2 @if($errors->has('company_address')) text-danger @endif">
+                                    <label for=""> <b> Company Address* </b></label>
+                                    <textarea name="company_address" rows="10" placeholder="Company Address" style="resize: none;"></textarea>
+
+                                    @if($errors->has('company_address')) 
+                                        <span class="text-danger"> {{$errors->first('company_address')}} </span>
                                     @endif
 
                                 </div>

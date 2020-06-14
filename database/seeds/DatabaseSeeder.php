@@ -25,5 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ProvinceSeeder::class);
         // Districts Seeder
         $this->call(DistrictSeeder::class);
+        // Tender Category Seeder
+        $this->call(TenderCategorySeeder::class);
     }
 }

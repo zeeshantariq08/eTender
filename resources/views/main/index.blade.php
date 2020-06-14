@@ -19,95 +19,40 @@
 @endsection
 @section('content')
 
-  <div class="banner-area jarallax" {{-- style="background-image: url({{ asset('img/banner/1.jpg') }} );" --}}>
+  <div class="banner-area jarallax" style="background-image:url({{url('images/banner.png')}});">
         <div class="container">
             <div class="banner-inner-wrap">
                 <div class="row">
-                    <div class="col-12">
-                        <div class="banner-inner mt-4">
-                           {{--  <h5 class="sub-title">The Best Way To</h5> --}}
-                            <h4 class="">Find Your Perfect Tender</h4>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="banner-search-wrap">
-                            <ul class="nav nav-tabs rld-banner-tab">
-                                <li class="nav-item">
-                                    <a class="nav-link active" data-toggle="tab" href="#tabs_1">Filter</a>
-                                </li>
-                            </ul>
-                            <div class="tab-content">
-                                <div class="tab-pane fade show active" id="tabs_1">
-                                    <div class="rld-main-search">
-                                      <form action="{{ route('filter.tender') }}" method="post">
-
-                                        @csrf
-
-                                        <div class="row">
-                                          <div class="col-md-4">
-                                            <div class="rld-single-select mt-2 @if($errors->has('tender_category_id')) text-danger @endif">
-                                                <label><b> Select Category </b></label>
-                                                <select style="width:100%;" name="tender_category_id"  class="select single-select select2">
-                                                   <option value="">Select</option> 
-                                                   @foreach ($categories as $category)
-                                                       <option value="{{$category->id}}">{{$category->title}}</option> 
-                                                   @endforeach
-                                                </select>
-
-                                                @if($errors->has('tender_category_id')) 
-                                                    <span class="text-danger"> {{$errors->first('tender_category_id')}} </span>
-                                                @endif
-                                               
-                                              </div>
-                                          </div>
-                                          <div class="col-md-4">
-                                            <div class="rld-single-select mt-2 @if($errors->has('province_id')) text-danger @endif">
-                                                <label><b> Select Province </b></label>
-                                                <select style="width:100%;" name="province_id" id="province" class="select single-select select2">
-                                                   <option value="">Select</option> 
-                                                      @foreach ($provinces as $province)
-                                                        <option value="{{$province->id}}">{{$province->name}}</option> 
-                                                      @endforeach
-                                                    </select>
-
-                                                    @if($errors->has('province_id')) 
-                                                        <span class="text-danger"> {{$errors->first('province_id')}} </span>
-                                                    @endif
-                                              </div>
-                                          </div>
-                                          <div class="col-md-4">
-                                            <div class="rld-single-select mt-2 @if($errors->has('district_id')) text-danger @endif">
-                                                <label><b> Select Province* </b></label>
-                                                <select style="width:100%;" name="district_id" class="select single-select select2">
-                                                  <option value="">Select</option> 
-                                                   @foreach ($provinces as $province)
-                                                      @foreach ($province->districts as $district)
-                                                          <option value="{{$district->id}}">{{$district->name}}</option> 
-                                                      @endforeach
-                                                    @endforeach
-                                                  </select>
-                                                    @if($errors->has('district_id')) 
-                                                        <span class="text-danger"> {{$errors->first('district_id')}} </span>
-                                                    @endif 
-                                                  
-                                              </div>
-                                          </div>
-                                          
-                                          <div class="col-xl-2 col-lg-2 col-md-2">
-                                                <button style="width:100%;" type="submit" class="btn btn-yellow mt-2">Search </button>
-                                          </div>
-                                        </div>
-                                        </form>
-                                    </div>
-                                </div>
-                               
+                    <div class="col-lg-10">
+                        <div class="banner-inner">
+                            <h5 class="sub-title">Checkout Top Tenders </h5>
+                            <h1 class="title">Increase Your Tender Winning Chance</h1>
+                            <div class="banner-btn-wrap">
+                                <a class="btn btn-yellow mr-2" href="{{ route('search') }}">Top Search</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-</div>
+    </div>
+     <div class="call-to-action-area pd-top-70">
+        <div class="container">
+            <div class="call-to-action" style="background-image: url(assets/img/bg/1.png);">
+                <div class="cta-content">
+                    <h3 class="title">Welcome To eTender Service</h3>
+                   {{--  <a class="btn btn-white" href="#">REGISTER NOW</a> --}}
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="property-news-single-card style-two border-bottom-yellow" style="margin: 20px;">
+        <h4>About Us</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In bibendum elit magna, ut placerat nunc tempus vel. Donec vitae dictum ligula. Phasellus congue maximus eleifend. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse potenti. Suspendisse sollicitudin posuere nunc et vehicula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas aliquam vitae quam at sodales. 
+        </p>
+        <a href="{{ route('search') }}"  style="text-align: right;float: right; ">Top Tenders.....</a>
+                       
+    </div>
 @endsection
 
     

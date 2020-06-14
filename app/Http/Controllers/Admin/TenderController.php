@@ -23,25 +23,26 @@ class TenderController extends Controller
         // $tenders = Tender::withCount(['bids'])->with('bids')->get();
         // dd($tenders->toArray());
         $tenders = Tender::with('tenderCategories')->get();
-        //dd($tenders->toArray());
+        // dd($tenders->toArray());
         return view('tender.index',compact('tenders'));
     }
 
     public function create()
     {
-       // $districts = District::where('province_id', 6)->get();
+        $districts = District::get();
         $provinces = Province::with('districts')->get();
-        //dd($districts->toArray());
+        // dd($districts->toArray());
         $tender = new Tender();
         $tenderCategory = TenderCategory::get(['id','title']);
         //dd($tenderCategory->toArray());
-        return view('tender.create', compact('tender','tenderCategory', 'provinces'));
+        return view('tender.create', compact('tender','tenderCategory', 'provinces','districts'));
     }
 
 
    public function store(Request $request, Tender $tender)
     {
         //dd($request->toArray());
+        
         $this->validate($request, [
             'reference_no' => 'bail|required|string|unique:tenders',
             'title' => 'bail|required|string',
@@ -51,7 +52,12 @@ class TenderController extends Controller
             'tender_category_id' => 'bail|required|integer',
             'district_id' => 'bail|required|integer',
             'province_id' => 'bail|required|integer',
-            'upload_file' => 'bail|required|file|mimes:pdf,doc,ppt,xls,docx,pptx,xlsx|max:8192' //8mb
+            'upload_file' => 'bail|required|file|mimes:pdf,doc,ppt,xls,docx,pptx,xlsx|max:8192', //8mb
+            'company_ntn' => 'bail|required|string|unique:tenders',
+            'company_name' => 'bail|required|string',
+            'company_email' =>'bail|required|email',
+            'company_phone_no' => 'bail|required',
+            'company_address' => 'bail|required'
         ]);
 
         //dd($request->toArray());
@@ -71,6 +77,7 @@ class TenderController extends Controller
             $filenametostore = $filename.'.'.$extension;
 
             $path = Storage::disk('local')->put($filenametostore, fopen($request->file('upload_file'), 'r+'));
+            dd($path);
         }
 
         $tender->create([
@@ -84,6 +91,11 @@ class TenderController extends Controller
             'province_id' => $request->province_id,
             'upload_file' => $filenametostore,
             'extension' => $extension,
+            'company_ntn' => $request->company_ntn,
+            'company_name' => $request->company_name,
+            'company_email' => $request->company_email,
+            'company_phone_no' => $request->company_phone_no,
+            'company_address' => $request->company_address,
             'user_id' => $userId
 
         ]);
@@ -99,8 +111,10 @@ class TenderController extends Controller
     }
 
 
-    public function show($slug) {
+    public function show($id) {
 
+        $tender = Tender::with('tenderCategories','user')->findOrFail($id);
+        return view('tender.tender-detail', compact('tender'));
     }
 
 

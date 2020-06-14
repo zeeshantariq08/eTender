@@ -14,18 +14,24 @@ class CreateBidsTable extends Migration
     public function up()
     {
         Schema::create('bids', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('company_name');
-            $table->string('company_reg_no');
+            $table->id();
+            $table->text('company_name');
             $table->string('ntn_number')->unique();
-            $table->string('contact_person');
-            $table->string('email');
-            $table->string('contact_no');
+            
+            $table->text('experience');
+            $table->text('amount');
+
+            $table->text('contact_person');
+            $table->text('email');
+            $table->text('contact_no');
             $table->string('upload_file');
             $table->string('extension');
             $table->string('status')->default('pending')->nullable();
-            $table->unsignedInteger('tender_id');
-            $table->unsignedInteger('user_id');
+
+            $table->foreignId('tender_id')->constrained('tenders')->onDelete('cascade');
+
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

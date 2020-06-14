@@ -5,6 +5,23 @@
 @endsection
 
 @section('content')
+<div class="banner-area jarallax" style="background-image:url({{url('images/banner.png')}});">
+        <div class="container">
+            <div class="banner-inner-wrap">
+                <div class="row">
+                    <div class="col-lg-10">
+                        <div class="banner-inner">
+                            <h5 class="sub-title">Checkout Top Tenders </h5>
+                            <h1 class="title">Increase Your Tender Winning Chance</h1>
+                            <div class="banner-btn-wrap">
+                                <a class="btn btn-yellow mr-2" href="{{ route('search') }}">Top Search</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- user list area start -->
     <div class="user-list-area pd-top-100 pd-bottom-70 mt-5">
         <div class="section-title text-center">
@@ -19,7 +36,7 @@
                                 <h6 class="p-2  bg-light">  {{Str::limit($tender->title, 70, '...')}}  </h6>
                             </div>
                             <div class="details pt-4">
-                                <a href="{{ url('/storage/'.$tender->upload_file) }}" class="feature-logo" title="Click here to Download" download>
+                                <a href="" class="feature-logo" title="Click here to Download" download>
                                    <i class="fa fa-file-text-o fa-lg mt-2 pt-2">
                                        <br><br><span style="font-size: 10px;">Download</span>
                                    </i>

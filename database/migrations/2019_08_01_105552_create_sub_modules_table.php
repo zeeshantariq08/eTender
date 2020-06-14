@@ -14,7 +14,7 @@ class CreateSubModulesTable extends Migration
     public function up()
     {
         Schema::create('sub_modules', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('name');
             $table->string('description');
             $table->string('icon');

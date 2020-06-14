@@ -39,7 +39,7 @@
 			                    	@foreach ($tenders as $element)
 				                    	<tr>
 							                <td class="text-center"> {{$element->id}} </td>
-							                <td> {{$element->title}} </td>
+							                <td> <a href="{{ route('tenders.show', $element->id) }}"  data-toggle="tooltip" data-original-title="View Detail"> {{$element->title}} </a></td>
 							                <td> {{$element->open_date->format('Y-m-d')}} </td>
 							                <td> {{$element->close_date->format('Y-m-d')}} </td>
 							                <td>

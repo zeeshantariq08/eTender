@@ -14,7 +14,7 @@ class CreateTenderCategoriesTable extends Migration
     public function up()
     {
         Schema::create('tender_categories', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->string('title');
             $table->timestamps();
         });

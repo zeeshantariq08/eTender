@@ -19,10 +19,27 @@
 @endsection
 
 @section('content')
+<div class="banner-area jarallax" style="background-image:url({{url('images/banner.png')}});">
+        <div class="container">
+            <div class="banner-inner-wrap">
+                <div class="row">
+                    <div class="col-lg-10">
+                        <div class="banner-inner">
+                            <h5 class="sub-title">Checkout Top Tenders </h5>
+                            <h1 class="title">Increase Your Tender Winning Chance</h1>
+                            <div class="banner-btn-wrap">
+                                <a class="btn btn-yellow mr-2" href="{{ route('search') }}">Top Search</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- add-tender-area start -->
     <div class="add-new-property-area pd-top-90">
         <div class="container">
-        	<h5 class="mt-4">{{$tender->title ?? 'de'}}</h5>
+        	{{-- <h5 class="mt-4">{{$tender->title ?? ''}}</h5> --}}
             <div class="row justify-content-center">
                 <div class="col-xl-12 col-lg-12 col-md-12">
                     @if (Session::has('company_exist'))
@@ -51,17 +68,44 @@
                                 </div>
                             </div>
                             <div class="col-md-6 mt-2">
-                                <div class="rld-single-input @if($errors->has('company_reg_no')) text-danger @endif">
-                                    <label for=""> <b> Company Registration Number* </b> </label>
-                                    <input type="text" name="company_reg_no" placeholder="Company registration Number" >
+                                <div class="rld-single-input @if($errors->has('ntn_number')) text-danger @endif">
+                                    <label for=""> <b> Company NTN Number* </b> </label>
+                                    <input type="text" name="ntn_number" placeholder="Company NTN Number" >
                                     
-                                    @if($errors->has('company_reg_no')) 
-                                        <span class="text-danger"> {{$errors->first('company_reg_no')}} </span>
+                                    @if($errors->has('ntn_number')) 
+                                        <span class="text-danger"> {{$errors->first('ntn_number')}} </span>
                                     @endif
                                    
                                 </div>
                             </div>
                         </div>
+
+                        <div class="row ">
+                            <input type="hidden" name="from_bider" value="from_bider">
+                            <div class="col-md-6 mt-2">
+                                <div class="rld-single-input @if($errors->has('experience')) text-danger @endif">
+                                    <label for=""> <b> Experence* </b> </label>
+                                    <input type="text" name="experience" placeholder="Company Experence" value="{{ old('experience') }}" >
+
+                                    @if($errors->has('experience')) 
+                                        <span class="text-danger"> {{$errors->first('experience')}} </span>
+                                    @endif
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                <div class="rld-single-input @if($errors->has('amount')) text-danger @endif">
+                                    <label for=""> <b> Bidding Amount* </b> </label>
+                                    <input type="number" name="amount" placeholder="Bidding Amount" >
+                                    
+                                    @if($errors->has('amount')) 
+                                        <span class="text-danger"> {{$errors->first('amount')}} </span>
+                                    @endif
+                                   
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="rld-single-input @if($errors->has('contact_person')) text-danger @endif">
@@ -114,7 +158,7 @@
                        
                         <div class="rld-single-input">
                             <button type="reset" class="btn btn-secondary btn-xs"> Reset </button>
-                            <button type="submit" class="btn btn-success btn-xs"> Submit </button>
+                            <button type="submit" class="btn btn-danger btn-xs"> Submit </button>
                         </div>
                     </form>
                 </div>

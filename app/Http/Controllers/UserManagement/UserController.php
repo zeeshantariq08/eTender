@@ -46,7 +46,7 @@ class UserController extends Controller
 
         $user->save();
 
-        Toastr::success('User added Successfully', 'Success', ['positionClass' => 'toast-bottom-right']);
+        Toastr::success('User added Successfully', 'Success', ['positionClass' => 'toast-top-right']);
 
         if($request->has('clent_registration')){
             return redirect()->route('clientLogin');
@@ -99,7 +99,7 @@ class UserController extends Controller
         $user->slug = Str::slug($request->name,'-');
 
         $user->save();
-        Toastr::success('User Updated Successfully', 'Success', ['positionClass' => 'toast-bottom-right']);
+        Toastr::success('User added Successfully', 'Success', ['positionClass' => 'toast-bottom-right']);
 
         return redirect()->route('users.index');
 

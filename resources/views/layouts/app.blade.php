@@ -20,7 +20,7 @@
                 </h1>
             </div>
         </div>
-        <ul class="breadcrumb breadcrumb-top">
+        {{-- <ul class="breadcrumb breadcrumb-top">
             <li><a href="{{ url("home") }}"> <i class="fa fa-home"></i> </a></li>
             @foreach($segments =  request()->segments() as $key => $segment)
                 @if ($loop->last)
@@ -29,7 +29,7 @@
                     <li class="breadcrumb-item"> <a href="{{ url(implode(array_slice($segments, 0, $key + 1), "/")) }}"> {{ $segment }} </a> </li>
                 @endif
             @endforeach
-        </ul>
+        </ul> --}}
         @yield('content')
     </div>
 

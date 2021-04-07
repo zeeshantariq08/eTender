@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "259b4a9cf00009858e6a27c5459150c1",
+    "content-hash": "200071e930e1f3d07588da6340d4d3d6",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -57,66 +57,6 @@
                 "stack"
             ],
             "time": "2019-12-24T22:41:47+00:00"
-        },
-        {
-            "name": "betterapp/laravel-db-encrypter",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/betterapp/laravel-db-encrypter.git",
-                "reference": "1015484d4ec216f6fdda847732d90fb51997e842"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/betterapp/laravel-db-encrypter/zipball/1015484d4ec216f6fdda847732d90fb51997e842",
-                "reference": "1015484d4ec216f6fdda847732d90fb51997e842",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "betterapp\\LaravelDbEncrypter\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Daniel Czestki",
-                    "email": "daniel@betterapp.net",
-                    "homepage": "https://github.com/betterapp",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Provides database model attribute encryption/decryption",
-            "keywords": [
-                "attribute",
-                "database",
-                "database encrypter",
-                "database encryption",
-                "decrypt",
-                "decrypted",
-                "decryption",
-                "eloquent",
-                "encrypt",
-                "encrypter",
-                "encryption",
-                "laravel",
-                "laravel attribute encrypter",
-                "laravel attribute encryption",
-                "laravel database encrypter",
-                "laravel database encryption",
-                "laravel db encrypter",
-                "laravel db encryption",
-                "laravel model encrypter",
-                "laravel model encryption"
-            ],
-            "time": "2020-02-23T20:11:34+00:00"
         },
         {
             "name": "brian2694/laravel-toastr",
@@ -2295,16 +2235,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.27",
+            "version": "2.0.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "34620af4df7d1988d8f0d7e91f6c8a3bf931d8dc"
+                "reference": "233a920cb38636a43b18d428f9a8db1f0a1a08f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/34620af4df7d1988d8f0d7e91f6c8a3bf931d8dc",
-                "reference": "34620af4df7d1988d8f0d7e91f6c8a3bf931d8dc",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/233a920cb38636a43b18d428f9a8db1f0a1a08f4",
+                "reference": "233a920cb38636a43b18d428f9a8db1f0a1a08f4",
                 "shasum": ""
             },
             "require": {
@@ -2312,8 +2252,7 @@
             },
             "require-dev": {
                 "phing/phing": "~2.7",
-                "phpunit/phpunit": "^4.8.35|^5.7|^6.0",
-                "sami/sami": "~2.0",
+                "phpunit/phpunit": "^4.8.35|^5.7|^6.0|^9.4",
                 "squizlabs/php_codesniffer": "~2.0"
             },
             "suggest": {
@@ -2397,7 +2336,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-04-04T23:17:33+00:00"
+            "time": "2021-04-06T13:56:45+00:00"
         },
         {
             "name": "psr/container",
@@ -4840,6 +4779,67 @@
     ],
     "packages-dev": [
         {
+            "name": "betterapp/laravel-db-encrypter",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/betterapp/laravel-db-encrypter.git",
+                "reference": "c972efa5b737175cfabd464400a8b0e3330d3334"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/betterapp/laravel-db-encrypter/zipball/c972efa5b737175cfabd464400a8b0e3330d3334",
+                "reference": "c972efa5b737175cfabd464400a8b0e3330d3334",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^6.0|^7.0|^8.0",
+                "php": ">=7.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "betterapp\\LaravelDbEncrypter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Czestki",
+                    "email": "daniel@betterapp.net",
+                    "homepage": "https://github.com/betterapp",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Provides database model attribute encryption/decryption",
+            "keywords": [
+                "attribute",
+                "database",
+                "database encrypter",
+                "database encryption",
+                "decrypt",
+                "decrypted",
+                "decryption",
+                "eloquent",
+                "encrypt",
+                "encrypter",
+                "encryption",
+                "laravel",
+                "laravel attribute encrypter",
+                "laravel attribute encryption",
+                "laravel database encrypter",
+                "laravel database encryption",
+                "laravel db encrypter",
+                "laravel db encryption",
+                "laravel model encrypter",
+                "laravel model encryption"
+            ],
+            "time": "2020-09-12T15:42:56+00:00"
+        },
+        {
             "name": "doctrine/instantiator",
             "version": "1.3.0",
             "source": {
@@ -5179,6 +5179,7 @@
                 "faker",
                 "fixtures"
             ],
+            "abandoned": true,
             "time": "2019-12-12T13:22:17+00:00"
         },
         {
@@ -5989,6 +5990,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2019-09-17T06:23:10+00:00"
         },
         {
@@ -6819,12 +6821,12 @@
             "version": "1.8.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/webmozart/assert.git",
+                "url": "https://github.com/webmozarts/assert.git",
                 "reference": "ab2cb0b3b559010b75981b1bdce728da3ee90ad6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/ab2cb0b3b559010b75981b1bdce728da3ee90ad6",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/ab2cb0b3b559010b75981b1bdce728da3ee90ad6",
                 "reference": "ab2cb0b3b559010b75981b1bdce728da3ee90ad6",
                 "shasum": ""
             },
@@ -6865,9 +6867,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "betterapp/laravel-db-encrypter": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
